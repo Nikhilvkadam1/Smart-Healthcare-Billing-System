@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Prediction</title>
+    <link rel="stylesheet" href="/static/edit.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Edit Patient Record</h2>
+        <form method="POST" class="edit-form">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="{{ prediction.name }}" required>
+
+            <label for="bill_amount">Bill Amount:</label>
+            <input type="number" name="bill_amount" id="bill_amount" step="0.01" value="{{ prediction.bill_amount }}" required>
+
+            <input type="submit" value="Update" class="btn btn-update">
+        </form>
+
+        <a href="/records" class="btn btn-back">Back to Records</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Predictions</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>All Patient Records</h2>
+        <table border="1" width="100%">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Patient Name</th>
+                <th>Bill Amount</th>
+                <th>Actions</th>
+            </tr>
+            {% for pred in predictions %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ pred.name }}</td>
+                <td>₹{{ pred.bill_amount | int }}</td>
+
+                <td>
+                    <a href="/edit/{{ pred.id }}" class="btn btn-edit">Edit</a>
+                    <a href="/delete/{{ pred.id }}" class="btn btn-delete" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br><a href="/" class="btn btn-back">Back to Home</a>
+    </div>
+</body>
+</html>

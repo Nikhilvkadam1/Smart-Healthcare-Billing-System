@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Bill Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Health Bill</h2>
+        <form action="/predict" method="post">
+            <input type="text" name="name" placeholder="Patient Name" required><br>
+            <input type="number" name="age" placeholder="Age" required><br>
+            <input type="text" name="gender" placeholder="Gender" required><br>
+            <input type="text" name="blood" placeholder="Blood Type" required><br>
+            <input type="text" name="condition" placeholder="Medical Condition" required><br>
+            <input type="text" name="admission" placeholder="Admission Type" required><br>
+            <input type="text" name="insurance" placeholder="Insurance Provider" required><br>
+            <input type="text" name="medication" placeholder="Medication" required><br>
+            <input type="text" name="test" placeholder="Test Results" required><br>
+            <input type="number" name="stay" placeholder="Length of Stay (in days)" required><br>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <p>{{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
